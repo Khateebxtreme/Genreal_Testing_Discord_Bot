@@ -1,0 +1,15 @@
+{
+  "name": "discord_bot_first",
+  "version": "1.0.0",
+  "description": "starting with making of first discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khateeb Anwer",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.4.0",
+    "dotenv": "^16.0.2"
+  }
+}
