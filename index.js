@@ -33,7 +33,7 @@ client.on("ready",()=>{
 //here we are passing specefic events our bots acts on as our first parameter
 //client.user.tag is the username of the concerned bot that we are logged in with
 
-const welcomeChannelId = "1025146514428919929";
+const welcomeChannelId = "1025550335378456656";
 
 client.on("guildMemberAdd", async (member)=>{
   const img = await generateImage(member);

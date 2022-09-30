@@ -1,4 +1,4 @@
-//Start again at second video at 18:30
+//Start again at 3rd video
 
 //canvas package will give us the ability to draw shapes, text and images onto a canvas which than can be converted into an image file for it to be uploaded on discord for our welcome message
 //This file will hold the async function responsible for creating an image on canvas
