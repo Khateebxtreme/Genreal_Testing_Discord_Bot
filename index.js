@@ -8,6 +8,8 @@ require("dotenv").config();
 //The config function in dotenv package tells Node to load all the values from .env file
 //We need to also install the "dotenv" as a dependency in our project for the require line to work
 
+const generateImage = require("./generateImage.js");
+
 const BOTTOKEN = process.env.TOKEN;
 //contains token which helps us in accessing our discord bot
 //We use environment(.env) variables to seperate the important / restricted TOKENS or KEYS from our code so that our code can be easily shared in public i.e through a Github repo without compromising the security of those restricted TOKENS or KEYS.
@@ -18,7 +20,8 @@ const BOTTOKEN = process.env.TOKEN;
 const client = new Discord.Client({
   intents:[
     "GUILDS",
-    "GUILD_MESSAGES"
+    "GUILD_MESSAGES",
+    "GUILD_MEMBERS"
   ]
 });
 //discord api represents  discord servers as GUILDS 
@@ -29,6 +32,20 @@ client.on("ready",()=>{
 //ready event listeners -> triggers when bot successfully logs in with provided token so when that event happens the bot will run this function.
 //here we are passing specefic events our bots acts on as our first parameter
 //client.user.tag is the username of the concerned bot that we are logged in with
+
+const welcomeChannelId = "1025146514428919929";
+
+client.on("guildMemberAdd", async (member)=>{
+  const img = await generateImage(member);
+  member.guild.channels.cache.get(welcomeChannelId).send({
+    content : `<@${member.id}> Welcome to the Server` , 
+    files : [img]
+  });
+  console.log("member Welcomed")
+})
+//Event listener for when a new user joins the server and the bot will respond with a welcome message on the welcome channel for the user
+//we will receive the id of a discord channel by right clicking on it from discord server and copying the id after we have turn on the developer mode on.
+
 
 client.on("messageCreate", (message)=>{
   if(message.content=== "Hi General_Testing" || message.content=== "Hello General_Testing" ){

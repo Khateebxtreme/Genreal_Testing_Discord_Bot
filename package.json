@@ -9,6 +9,7 @@
   "author": "Khateeb Anwer",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.10.1",
     "discord.js": "^13.4.0",
     "dotenv": "^16.0.2"
   }
